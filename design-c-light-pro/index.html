@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Spartacus Protection &amp; Consulting — The Shield You Need</title>
+<meta name="description" content="Veteran-owned safety and security consulting for schools, churches, and faith-based organizations across Indiana." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#13294b;        /* deep institutional navy */
+    --navy-2:#1d3a63;
+    --blue:#2b5fa6;
+    --blue-soft:#eaf1fb;
+    --gold:#b78a3e;        /* warm accent — trust / veteran */
+    --gold-soft:#f5ecdb;
+    --paper:#fbfaf7;       /* warm off-white */
+    --paper-2:#f3f1ea;
+    --card:#ffffff;
+    --ink:#1c2535;
+    --txt:#414b5c;
+    --txt-dim:#6c7587;
+    --line:#e7e3d8;
+    --line-2:#ecedf1;
+    --maxw:1140px;
+    --shadow:0 30px 60px -34px rgba(19,41,75,.3);
+    --shadow-sm:0 14px 34px -22px rgba(19,41,75,.3);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--txt);font-family:'Public Sans',system-ui,sans-serif;font-size:17px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  h1,h2,h3,.serif{font-family:'Fraunces',Georgia,serif;font-weight:500;line-height:1.08;color:var(--ink)}
+  .kicker{display:inline-block;font-family:'Public Sans';font-size:12.5px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+  .rule{width:46px;height:2px;background:var(--gold);margin:14px 0 0}
+
+  /* Header */
+  header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(251,250,247,.82);backdrop-filter:blur(12px);border-bottom:1px solid transparent;transition:.3s}
+  header.scrolled{border-bottom:1px solid var(--line);box-shadow:0 6px 24px -20px rgba(19,41,75,.5)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:80px}
+  .brand{display:flex;align-items:center;gap:13px}
+  .brand .mark{height:46px;width:46px;border-radius:10px;background:var(--navy);display:grid;place-items:center;overflow:hidden;flex:none}
+  .brand .mark img{height:46px;width:46px;object-fit:cover}
+  .brand b{font-family:'Fraunces';font-weight:600;font-size:21px;color:var(--navy);line-height:1}
+  .brand small{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--txt-dim);margin-top:3px;font-family:'Public Sans';font-weight:600}
+  .nav-links{display:flex;gap:30px}
+  .nav-links a{font-weight:500;font-size:15px;color:var(--txt);position:relative;padding:6px 0;transition:.2s}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1.5px;background:var(--gold);transition:.25s}
+  .nav-links a:hover{color:var(--navy)}.nav-links a:hover::after{width:100%}
+  .btn{display:inline-flex;align-items:center;gap:8px;cursor:pointer;border:none;font-family:'Public Sans';font-weight:600;font-size:15px;padding:13px 24px;border-radius:4px;transition:.25s}
+  .btn-primary{background:var(--navy);color:#fff}
+  .btn-primary:hover{background:var(--navy-2);transform:translateY(-2px);box-shadow:0 14px 30px -14px rgba(19,41,75,.7)}
+  .btn-gold{background:var(--gold);color:#fff}
+  .btn-gold:hover{filter:brightness(1.06);transform:translateY(-2px)}
+  .btn-outline{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+  .btn-outline:hover{background:var(--navy);color:#fff}
+  .btn-light{background:#fff;color:var(--navy);border:1.5px solid var(--line)}
+  .btn-light:hover{border-color:var(--gold);color:var(--gold)}
+  .nav-cta{display:flex;align-items:center;gap:14px}
+  .hamb{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:10px}
+  .hamb span{width:25px;height:2px;background:var(--navy);transition:.3s}
+  .hamb.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .hamb.open span:nth-child(2){opacity:0}
+  .hamb.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+  /* Hero */
+  .hero{padding:148px 0 0;position:relative}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:54px;align-items:center}
+  .hero .kicker{opacity:0;animation:rise .7s .1s forwards}
+  .hero h1{font-size:clamp(2.7rem,6.4vw,4.9rem);margin:20px 0 0;letter-spacing:-.5px}
+  .hero h1 .a{display:block;opacity:0;animation:rise .8s .22s forwards}
+  .hero h1 .b{display:block;font-style:italic;color:var(--blue);opacity:0;animation:rise .8s .36s forwards}
+  .hero p.lead{font-size:clamp(1.08rem,1.8vw,1.25rem);color:var(--txt);max-width:480px;margin:26px 0 0;opacity:0;animation:rise .8s .5s forwards}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:32px;opacity:0;animation:rise .8s .64s forwards}
+  .hero-figure{position:relative;opacity:0;animation:rise .9s .4s forwards}
+  .hero-figure .img{border-radius:6px;overflow:hidden;box-shadow:var(--shadow);border:1px solid var(--line)}
+  .hero-figure .img img{width:100%;height:clamp(360px,46vw,540px);object-fit:cover;object-position:center 30%}
+  .hero-figure .tag{position:absolute;left:-18px;bottom:30px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:4px;padding:16px 22px;box-shadow:var(--shadow-sm);max-width:230px}
+  .hero-figure .tag b{font-family:'Fraunces';font-weight:600;color:var(--navy);font-size:1.05rem;display:block}
+  .hero-figure .tag span{font-size:13px;color:var(--txt-dim)}
+  @keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+  /* marquee trust strip */
+  .strip{margin-top:64px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--paper-2)}
+  .strip .wrap{display:flex;flex-wrap:wrap;gap:14px 40px;align-items:center;justify-content:center;padding-top:22px;padding-bottom:22px}
+  .strip span{font-family:'Public Sans';font-weight:600;font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-dim)}
+  .strip .b{color:var(--gold)}
+
+  .pad{padding:clamp(76px,9vw,124px) 0}
+  .sec-head{max-width:680px;margin-bottom:52px}
+  .sec-head.center{margin-inline:auto;text-align:center}
+  .sec-head.center .rule{margin-inline:auto}
+  .sec-head h2{font-size:clamp(2.1rem,4.4vw,3.3rem);margin-top:16px;letter-spacing:-.4px}
+  .sec-head p{color:var(--txt-dim);margin-top:14px;font-size:1.1rem}
+  .reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+
+  /* Story */
+  .story{background:var(--card);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .story-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:60px;align-items:start}
+  .story-grid .lead-col h2{font-size:clamp(1.9rem,3.6vw,2.7rem)}
+  .story-grid .lead-col .quote-mark{font-family:'Fraunces';font-size:5rem;color:var(--gold-soft);line-height:.4;display:block;margin-bottom:6px}
+  .story-body p{font-size:1.08rem}
+  .story-body p+p{margin-top:18px}
+  .story-body .first::first-letter{font-family:'Fraunces';font-size:3.4rem;float:left;line-height:.78;padding:6px 12px 0 0;color:var(--navy)}
+  .signoff{margin-top:26px;font-family:'Fraunces';font-style:italic;font-size:1.25rem;color:var(--navy)}
+
+  /* Team */
+  .team{background:var(--paper)}
+  .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px}
+  .member{background:var(--card);border:1px solid var(--line);border-radius:6px;overflow:hidden;box-shadow:var(--shadow-sm);transition:.3s}
+  .member:hover{transform:translateY(-6px);box-shadow:var(--shadow)}
+  .member .photo{aspect-ratio:16/10;overflow:hidden}
+  .member .photo img{width:100%;height:100%;object-fit:cover;transition:.5s}
+  .member:hover .photo img{transform:scale(1.04)}
+  .member .info{padding:28px 30px 32px}
+  .member h3{font-size:1.6rem}
+  .member .role{font-family:'Public Sans';font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin:8px 0 16px}
+  .member p{font-size:.97rem;color:var(--txt-dim)}
+
+  /* Services */
+  .svc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--card)}
+  .svc{padding:48px 44px;position:relative;transition:.3s}
+  .svc:first-child{border-right:1px solid var(--line)}
+  .svc:hover{background:var(--blue-soft)}
+  .svc .num{font-family:'Fraunces';font-style:italic;font-size:1.2rem;color:var(--gold)}
+  .svc .ic{width:58px;height:58px;border-radius:50%;border:1.5px solid var(--navy);color:var(--navy);display:grid;place-items:center;margin:18px 0 22px;transition:.3s}
+  .svc:hover .ic{background:var(--navy);color:#fff}
+  .svc h3{font-size:1.7rem}
+  .svc p{margin:14px 0 22px;color:var(--txt-dim)}
+  .svc .more{font-weight:600;color:var(--navy);display:inline-flex;align-items:center;gap:8px}
+  .svc .more svg{transition:.25s}.svc:hover .more svg{transform:translateX(5px)}
+
+  /* Testimonials */
+  .tst{background:var(--navy);color:#e9eef6}
+  .tst .sec-head h2{color:#fff}.tst .kicker{color:var(--gold)}.tst .rule{background:var(--gold)}
+  .tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .quote{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:34px 30px;display:flex;flex-direction:column}
+  .quote .mark{font-family:'Fraunces';font-size:3.4rem;color:var(--gold);line-height:.5;height:26px}
+  .quote p{font-family:'Fraunces';font-weight:400;font-size:1.12rem;line-height:1.5;color:#eef2f8;flex:1}
+  .quote .who{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+  .quote .who b{font-family:'Public Sans';font-weight:700;color:#fff;font-size:.98rem;display:block}
+  .quote .who span{font-size:12.5px;color:#9fb0cb}
+
+  /* CTA */
+  .cta{background:linear-gradient(120deg,var(--gold-soft),var(--paper));border:1px solid var(--line);border-radius:10px;padding:clamp(46px,7vw,76px);text-align:center}
+  .cta h2{font-size:clamp(2rem,4.4vw,3.1rem)}
+  .cta p{color:var(--txt);max-width:540px;margin:16px auto 30px;font-size:1.12rem}
+  .cta .actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+  /* Footer */
+  footer{background:var(--navy);color:#c4d0e3;padding:76px 0 36px}
+  .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:48px;padding-bottom:46px;border-bottom:1px solid rgba(255,255,255,.12)}
+  .foot-brand .mark{height:64px;width:64px;border-radius:12px;overflow:hidden;background:#fff;display:grid;place-items:center;margin-bottom:18px}
+  .foot-brand .mark img{height:64px;width:64px;object-fit:cover}
+  .foot-brand p{max-width:300px;color:#93a3c0;font-size:.95rem}
+  .foot h4{font-family:'Fraunces';font-weight:600;color:#fff;font-size:1.15rem;margin-bottom:16px}
+  .foot ul{list-style:none;display:flex;flex-direction:column;gap:10px}
+  .foot a{transition:.2s}.foot a:hover{color:var(--gold)}
+  .foot address{font-style:normal;display:flex;flex-direction:column;gap:10px;font-size:.95rem}
+  .socials{display:flex;gap:10px;margin-top:18px}
+  .socials a{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.18);display:grid;place-items:center;transition:.25s;color:#c4d0e3}
+  .socials a:hover{background:var(--gold);border-color:var(--gold);color:#fff;transform:translateY(-3px)}
+  .foot-bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:24px;color:#7e8eac;font-size:.86rem;align-items:center}
+  .vbadge{display:inline-flex;gap:7px;align-items:center;color:#cdd7e8;border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:6px 14px;font-size:12.5px;font-weight:600;letter-spacing:.04em}
+
+  @media(max-width:900px){
+    .nav-links,.nav-cta .btn{display:none}.hamb{display:flex}
+    .nav-links.show{display:flex;flex-direction:column;position:absolute;top:80px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);padding:8px 26px 22px;gap:0}
+    .nav-links.show a{padding:15px 0;border-bottom:1px solid var(--line);font-size:16px}
+    .hero-grid,.story-grid,.team-grid{grid-template-columns:1fr}
+    .hero-figure{order:-1}
+    .svc-grid{grid-template-columns:1fr}.svc:first-child{border-right:none;border-bottom:1px solid var(--line)}
+    .tst-grid{grid-template-columns:1fr}
+    .foot-grid{grid-template-columns:1fr 1fr}.foot-brand{grid-column:1/-1}
+  }
+  @media(max-width:560px){.foot-grid{grid-template-columns:1fr}.hero-figure .tag{left:0}}
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Spartacus home">
+      <span class="mark"><img src="../assets/logo.avif" alt="Spartacus shield logo" /></span>
+      <span><b>Spartacus</b><small>Protection &amp; Consulting</small></span>
+    </a>
+    <nav class="nav-links" id="menu">
+      <a href="#story">About</a><a href="#team">Team</a><a href="#services">Services</a><a href="#testimonials">Testimonials</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">Get Started</a>
+      <button class="hamb" id="hamb" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="kicker">Veteran-Owned · Serving Indiana</span>
+      <div class="rule"></div>
+      <h1><span class="a">The Shield You Need.</span><span class="b">The Strategy You Trust.</span></h1>
+      <p class="lead">Customized safety and security solutions for schools, churches, and faith-based organizations — created through comprehensive risk assessments and practical, hands-on planning.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Get Started
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="#services" class="btn btn-outline">Our Services</a>
+      </div>
+    </div>
+    <figure class="hero-figure">
+      <div class="img"><img src="../assets/skyline.avif" alt="Indianapolis skyline at night" /></div>
+      <figcaption class="tag"><b>15+ Years</b><span>Combined law enforcement &amp; military experience</span></figcaption>
+    </figure>
+  </div>
+  <div class="strip">
+    <div class="wrap">
+      <span>Schools</span><span class="b">◆</span><span>Churches</span><span class="b">◆</span><span>Faith-Based Organizations</span><span class="b">◆</span><span>CPTED Certified</span><span class="b">◆</span><span>Veteran Owned</span>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section id="story" class="story pad">
+  <div class="wrap story-grid">
+    <div class="lead-col reveal">
+      <span class="quote-mark">“</span>
+      <span class="kicker">Our Story</span>
+      <div class="rule"></div>
+      <h2>Built on service.<br>Driven to protect.</h2>
+    </div>
+    <div class="story-body reveal" style="transition-delay:.1s">
+      <p class="first">Spartacus Protection &amp; Consulting was founded on a commitment to protecting the communities we serve. Backed by more than 15 years of combined law enforcement and military experience, we deliver trusted, high-quality security solutions tailored to schools and faith-based organizations throughout Indiana.</p>
+      <p>Our mission is simple: to enhance safety, strengthen preparedness, and provide peace of mind through proactive, professional protection strategies. Through unmatched expertise and a client-focused approach, we build confidence and support the long-term goals of the organizations we serve.</p>
+      <p>We believe strong partnerships are the foundation of effective protection — and together, we can create safer, more secure communities for the future.</p>
+      <p class="signoff">— The Spartacus Team</p>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="team pad">
+  <div class="wrap">
+    <div class="sec-head center reveal"><span class="kicker">Meet the Team</span><div class="rule"></div><h2>The People Behind the Shield</h2></div>
+    <div class="team-grid">
+      <article class="member reveal">
+        <div class="photo"><img src="../assets/dino.avif" alt="David 'Dino' Farrell" /></div>
+        <div class="info">
+          <h3>David “Dino” Farrell</h3><div class="role">President / CEO</div>
+          <p>With more than 15 years of combined military and law enforcement experience, Dino has built a career centered on leadership, service, and community protection. A respected leader within Indiana's School Resource Officer community, he serves as Vice President of the Indiana School Resource Officers Association Foundation Board and is passionate about safer schools and mentoring students.</p>
+        </div>
+      </article>
+      <article class="member reveal" style="transition-delay:.1s">
+        <div class="photo"><img src="../assets/amy.avif" alt="Amy Nickol" /></div>
+        <div class="info">
+          <h3>Amy Nickol</h3><div class="role">Director of Operations</div>
+          <p>Amy brings 15 years of experience in public education and a strong commitment to safe, supportive, student-centered environments. A certified CPTED practitioner and Indiana School Safety Specialist active in both INSROA and NASRO, she is passionate about mentoring young people and building confidence on and off the court.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="pad">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="kicker">What We Do</span><div class="rule"></div><h2>Security Services</h2><p>Practical, tailored protection — from full-building risk assessments to hands-on security consultation.</p></div>
+    <div class="svc-grid">
+      <article class="svc reveal">
+        <div class="num">No. 01</div>
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 3v6c0 5-3.5 8.5-8 11-4.5-2.5-8-6-8-11V5l8-3z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Risk Assessment</h3>
+        <p>Comprehensive, on-site evaluations of building security, access control, and emergency preparedness — with clear, prioritized recommendations to protect your people and property.</p>
+        <a href="#contact" class="more">Request an assessment <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+      <article class="svc reveal" style="transition-delay:.1s">
+        <div class="num">No. 02</div>
+        <div class="ic"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/><circle cx="12" cy="12" r="3.4"/></svg></div>
+        <h3>Security Consultation</h3>
+        <p>Practical, hands-on guidance to strengthen your security posture — from policy and planning to staff training and ongoing support tailored to your organization.</p>
+        <a href="#contact" class="more">Talk to a consultant <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials" class="tst pad">
+  <div class="wrap">
+    <div class="sec-head center reveal"><span class="kicker">Testimonials</span><div class="rule"></div><h2>Trusted by the People We Serve</h2></div>
+    <div class="tst-grid">
+      <figure class="quote reveal">
+        <div class="mark">“</div>
+        <p>Spartacus exceeded all our security expectations. Their knowledge and expertise in risk assessment are unmatched.</p>
+        <figcaption class="who"><b>Cigar Box Bar &amp; Lounge</b><span>Business Client</span></figcaption>
+      </figure>
+      <figure class="quote reveal" style="transition-delay:.08s">
+        <div class="mark">“</div>
+        <p>Spartacus completed a comprehensive security assessment at Cathedral High School and delivered practical recommendations focused on protecting students, staff, and visitors.</p>
+        <figcaption class="who"><b>School &amp; Church Operations Leader</b><span>Education Sector</span></figcaption>
+      </figure>
+      <figure class="quote reveal" style="transition-delay:.16s">
+        <div class="mark">“</div>
+        <p>Each year I invited Spartacus to conduct a vulnerability assessment. The report was candid and the suggestions invaluable. I would not lead a school without them.</p>
+        <figcaption class="who"><b>Janet</b><span>Former Private School Principal</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="pad">
+  <div class="wrap">
+    <div class="cta reveal">
+      <span class="kicker">Get in Touch</span>
+      <h2 style="margin-top:14px">Ready to Strengthen Your Security?</h2>
+      <p>Let's build a safer environment for your school, church, or organization. Reach out for a conversation or to schedule an assessment.</p>
+      <div class="actions">
+        <a href="mailto:info@spartacusprocon.com" class="btn btn-primary">info@spartacusprocon.com
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a href="https://maps.google.com/?q=550+Congressional+Blvd+Suite+350+Carmel+IN+46032" target="_blank" rel="noopener" class="btn btn-light">Carmel, IN 46032</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand foot">
+        <span class="mark"><img src="../assets/logo.avif" alt="Spartacus Protection and Consulting" /></span>
+        <p>Veteran-owned safety and security consulting protecting Indiana's schools, churches, and faith-based communities.</p>
+        <div class="socials">
+          <a href="#" aria-label="Facebook"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M13 22v-8h2.7l.4-3.2H13V8.7c0-.9.3-1.6 1.7-1.6h1.5V4.2C15.9 4.1 15 4 14 4c-2.3 0-3.9 1.4-3.9 4v2.8H7.4V14h2.7v8z"/></svg></a>
+          <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg></a>
+        </div>
+      </div>
+      <div class="foot">
+        <h4>Contact</h4>
+        <address>
+          <a href="mailto:info@spartacusprocon.com">info@spartacusprocon.com</a>
+          <a href="https://maps.google.com/?q=550+Congressional+Blvd+Suite+350+Carmel+IN+46032" target="_blank" rel="noopener">550 Congressional Blvd, Suite 350<br>Carmel, IN 46032</a>
+        </address>
+      </div>
+      <div class="foot">
+        <h4>Company</h4>
+        <ul><li><a href="#story">About Us</a></li><li><a href="#services">Services</a></li><li><a href="#team">Our Team</a></li><li><a href="#contact">Contact</a></li></ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <small>© 2025 Spartacus Protection &amp; Consulting. All rights reserved.</small>
+      <span class="vbadge">★ Veteran Owned</span>
+      <small>Privacy · Accessibility · Terms · Refund Policy</small>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const header=document.getElementById('top');
+  const onScroll=()=>header.classList.toggle('scrolled',window.scrollY>20);
+  onScroll();addEventListener('scroll',onScroll,{passive:true});
+  const hamb=document.getElementById('hamb'),menu=document.getElementById('menu');
+  hamb.addEventListener('click',()=>{const o=menu.classList.toggle('show');hamb.classList.toggle('open',o);hamb.setAttribute('aria-expanded',o);});
+  menu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('show');hamb.classList.remove('open');hamb.setAttribute('aria-expanded',false);}));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

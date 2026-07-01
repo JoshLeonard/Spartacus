@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Spartacus Protection &amp; Consulting — Design Demos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Barlow:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{--ink:#0a0c0f;--panel:#12161c;--line:rgba(255,255,255,.1);--txt:#c7cdd4;--dim:#8b939d;--accent:#5fa0ee}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--txt);font-family:'Barlow',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 26px}
+  header{padding:64px 0 10px;text-align:center}
+  .kicker{font-family:'Oswald';letter-spacing:.28em;text-transform:uppercase;font-size:13px;color:var(--accent)}
+  h1{font-family:'Oswald';font-weight:600;text-transform:uppercase;font-size:clamp(2rem,5vw,3.4rem);color:#fff;line-height:1.04;margin:14px 0 14px}
+  header .sub{max-width:600px;margin:0 auto;color:#e4e8ee;font-size:1.08rem}
+  header .sub b{color:#fff;font-weight:600}
+  .note{display:flex;justify-content:center;margin:34px 0 4px}
+  .note-inner{max-width:760px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:28px 32px;text-align:left}
+  .note-inner h3{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#fff;font-size:1.05rem;margin-bottom:12px}
+  .note-inner p{color:var(--txt);margin-bottom:12px}
+  .note-inner p:last-child{margin-bottom:0}
+  .note-inner b{color:#fff;font-weight:600}
+  .note-inner .hint{color:var(--accent);font-family:'Oswald';letter-spacing:.02em;font-size:.95rem;margin-top:16px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:40px 0 60px}
+  .card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;transition:.3s}
+  .card:hover{transform:translateY(-8px);border-color:rgba(255,255,255,.28);box-shadow:0 40px 70px -40px rgba(0,0,0,.9)}
+  .swatch{height:160px;position:relative;display:flex;align-items:flex-end;padding:18px}
+  .swatch b{font-family:'Oswald';text-transform:uppercase;letter-spacing:.05em;color:#fff;font-size:1.05rem;position:relative;z-index:2}
+  .a .swatch{background:linear-gradient(120deg,#0a0c0f,#1b222c)}
+  .a .swatch::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.3)),repeating-linear-gradient(135deg,rgba(233,237,242,.08) 0 2px,transparent 2px 16px)}
+  .b .swatch{background:radial-gradient(120% 100% at 80% 0,#1d3a63,#0a1224)}
+  .b .swatch::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.12) 1px,transparent 0);background-size:22px 22px}
+  .c .swatch{background:linear-gradient(120deg,#13294b 60%,#b78a3e)}
+  .info{padding:22px 24px 26px;flex:1;display:flex;flex-direction:column}
+  .info h2{font-family:'Oswald';font-weight:500;text-transform:uppercase;font-size:1.25rem;color:#fff;margin-bottom:8px}
+  .info p{font-size:.93rem;color:var(--dim);flex:1}
+  .info .go{margin-top:18px;font-family:'Oswald';letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--accent);display:inline-flex;gap:8px;align-items:center}
+  .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
+  .tags span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:4px 10px}
+  footer{text-align:center;padding:14px 0 60px;color:var(--dim);font-size:.85rem;border-top:1px solid var(--line)}
+  footer .by{font-family:'Oswald';letter-spacing:.06em;text-transform:uppercase;color:#fff;font-size:1rem;margin-bottom:6px;padding-top:26px}
+  footer .by b{color:var(--accent)}
+  @media(max-width:820px){.grid{grid-template-columns:1fr;gap:18px}.note-inner{padding:24px 22px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="kicker">A Website Concept for Spartacus Protection &amp; Consulting</span>
+    <h1>Three Directions to Explore</h1>
+    <p class="sub">A design demo by <b>Joshua Leonard</b> — showing what a modern, fully responsive Spartacus website could look and feel like.</p>
+  </header>
+
+  <section class="note">
+    <div class="note-inner">
+      <h3>What you're looking at</h3>
+      <p>I took your current site and rebuilt it into three different visual styles so you can <b>see the options side by side</b> and get a feel for what fits Spartacus best. All three use your real content, logo, and photos — same sections, three distinct personalities.</p>
+      <p><b>Nothing here is set in stone.</b> Think of this as a starting point, not a finished product. We can mix pieces from different styles, change colors, fonts, layout, wording, add pages — whatever you have in mind. Pick a favorite (or the parts you like from each) and we'll take it from there.</p>
+      <p class="hint">→ Click any style below to open the full page. Try resizing your browser narrow to see how it adapts to phones.</p>
+    </div>
+  </section>
+
+  <div class="grid">
+    <a class="card a" href="design-a-dark-metallic/index.html">
+      <div class="swatch"><b>A · Dark + Metallic</b></div>
+      <div class="info">
+        <h2>Tactical Premium</h2>
+        <p>Charcoal base with steel/silver accents pulled from the shield logo. Condensed display type, security-grade and authoritative.</p>
+        <div class="tags"><span>Oswald</span><span>Dark</span><span>Steel</span></div>
+        <span class="go">View demo →</span>
+      </div>
+    </a>
+    <a class="card b" href="design-b-modern-blue/index.html">
+      <div class="swatch"><b>B · Modern Blue</b></div>
+      <div class="info">
+        <h2>Confident &amp; On-Brand</h2>
+        <p>Keeps the recognizable Spartacus blue, rebuilt on a clean spacing and type system with layered sections and rounded cards.</p>
+        <div class="tags"><span>Bricolage</span><span>Blue</span><span>Cards</span></div>
+        <span class="go">View demo →</span>
+      </div>
+    </a>
+    <a class="card c" href="design-c-light-pro/index.html">
+      <div class="swatch"><b>C · Light Editorial</b></div>
+      <div class="info">
+        <h2>Trustworthy &amp; Refined</h2>
+        <p>Warm off-white base, deep navy, and a gold accent with an elegant serif. Approachable — well suited to school &amp; faith audiences.</p>
+        <div class="tags"><span>Fraunces</span><span>Light</span><span>Navy + Gold</span></div>
+        <span class="go">View demo →</span>
+      </div>
+    </a>
+  </div>
+
+  <footer>
+    <p class="by">Concept &amp; design by <b>Joshua Leonard</b></p>
+    <p>Prepared for Spartacus Protection &amp; Consulting · A demo, not the live site · Everything is open to change</p>
+  </footer>
+</div>
+</body>
+</html>
