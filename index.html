@@ -3,100 +3,562 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Spartacus Protection &amp; Consulting — Design Demos</title>
+<title>Spartacus Protection &amp; Consulting — Design Walkthrough</title>
+<meta name="description" content="A guided walkthrough of three website design concepts for Spartacus Protection & Consulting, by Joshua Leonard." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Barlow:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
-  :root{--ink:#0a0c0f;--panel:#12161c;--line:rgba(255,255,255,.1);--txt:#c7cdd4;--dim:#8b939d;--accent:#5fa0ee}
+  :root{
+    --ink:#080a0d;
+    --ink-2:#0d1117;
+    --panel:#12161c;
+    --panel-2:#171d25;
+    --line:rgba(255,255,255,.1);
+    --line-2:rgba(255,255,255,.18);
+    --txt:#c7cdd4;
+    --dim:#8b939d;
+    --accent:#5fa0ee;
+    --accent-2:#3f7cc4;
+    --gold:#c8a24e;
+    --a1:#0a0c0f;--a2:#1b222c;    /* design A swatch */
+    --b1:#1d3a63;--b2:#0a1224;    /* design B swatch */
+    --c1:#13294b;--c2:#b78a3e;    /* design C swatch */
+    --ease:cubic-bezier(.2,.7,.2,1);
+  }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{background:var(--ink);color:var(--txt);font-family:'Barlow',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh}
-  .wrap{max-width:1160px;margin:0 auto;padding:0 26px}
-  header{padding:64px 0 10px;text-align:center}
-  .kicker{font-family:'Oswald';letter-spacing:.28em;text-transform:uppercase;font-size:13px;color:var(--accent)}
-  h1{font-family:'Oswald';font-weight:600;text-transform:uppercase;font-size:clamp(2rem,5vw,3.4rem);color:#fff;line-height:1.04;margin:14px 0 14px}
-  header .sub{max-width:600px;margin:0 auto;color:#e4e8ee;font-size:1.08rem}
-  header .sub b{color:#fff;font-weight:600}
-  .note{display:flex;justify-content:center;margin:34px 0 4px}
-  .note-inner{max-width:760px;background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:10px;padding:28px 32px;text-align:left}
-  .note-inner h3{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#fff;font-size:1.05rem;margin-bottom:12px}
-  .note-inner p{color:var(--txt);margin-bottom:12px}
-  .note-inner p:last-child{margin-bottom:0}
-  .note-inner b{color:#fff;font-weight:600}
-  .note-inner .hint{color:var(--accent);font-family:'Oswald';letter-spacing:.02em;font-size:.95rem;margin-top:16px}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:40px 0 60px}
-  .card{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;text-decoration:none;color:inherit;transition:.3s}
-  .card:hover{transform:translateY(-8px);border-color:rgba(255,255,255,.28);box-shadow:0 40px 70px -40px rgba(0,0,0,.9)}
-  .swatch{height:160px;position:relative;display:flex;align-items:flex-end;padding:18px}
-  .swatch b{font-family:'Oswald';text-transform:uppercase;letter-spacing:.05em;color:#fff;font-size:1.05rem;position:relative;z-index:2}
-  .a .swatch{background:linear-gradient(120deg,#0a0c0f,#1b222c)}
-  .a .swatch::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent,rgba(0,0,0,.3)),repeating-linear-gradient(135deg,rgba(233,237,242,.08) 0 2px,transparent 2px 16px)}
-  .b .swatch{background:radial-gradient(120% 100% at 80% 0,#1d3a63,#0a1224)}
-  .b .swatch::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.12) 1px,transparent 0);background-size:22px 22px}
-  .c .swatch{background:linear-gradient(120deg,#13294b 60%,#b78a3e)}
-  .info{padding:22px 24px 26px;flex:1;display:flex;flex-direction:column}
-  .info h2{font-family:'Oswald';font-weight:500;text-transform:uppercase;font-size:1.25rem;color:#fff;margin-bottom:8px}
-  .info p{font-size:.93rem;color:var(--dim);flex:1}
-  .info .go{margin-top:18px;font-family:'Oswald';letter-spacing:.12em;text-transform:uppercase;font-size:13px;color:var(--accent);display:inline-flex;gap:8px;align-items:center}
-  .tags{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px}
-  .tags span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:4px 10px}
-  footer{text-align:center;padding:14px 0 60px;color:var(--dim);font-size:.85rem;border-top:1px solid var(--line)}
-  footer .by{font-family:'Oswald';letter-spacing:.06em;text-transform:uppercase;color:#fff;font-size:1rem;margin-bottom:6px;padding-top:26px}
-  footer .by b{color:var(--accent)}
-  @media(max-width:820px){.grid{grid-template-columns:1fr;gap:18px}.note-inner{padding:24px 22px}}
+  html,body{height:100%}
+  body{
+    background:var(--ink);color:var(--txt);
+    font-family:'Barlow',system-ui,sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;
+    overflow:hidden;
+  }
+  h1,h2,h3,.font-d{font-family:'Oswald',sans-serif}
+  .accent{color:var(--accent)}
+  ::selection{background:var(--accent);color:#04070c}
+
+  /* ===== progress bar (top) ===== */
+  .progress{position:fixed;top:0;left:0;height:3px;width:100%;background:rgba(255,255,255,.06);z-index:60}
+  .progress .fill{height:100%;width:0;background:linear-gradient(90deg,var(--accent-2),var(--accent));transition:width .5s var(--ease)}
+
+  /* ===== top bar ===== */
+  .topbar{position:fixed;top:0;left:0;right:0;height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;z-index:55;pointer-events:none}
+  .topbar>*{pointer-events:auto}
+  .brand{display:flex;align-items:center;gap:11px}
+  .brand img{height:34px;width:auto}
+  .brand b{font-family:'Oswald';font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:15px;color:#fff}
+  .brand small{display:block;font-size:8px;letter-spacing:.28em;color:var(--dim);text-transform:uppercase}
+  .menu-btn{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#fff;
+    font-family:'Oswald';letter-spacing:.14em;text-transform:uppercase;font-size:12px;font-weight:500;padding:9px 15px;border-radius:8px;cursor:pointer;transition:.2s;backdrop-filter:blur(6px)}
+  .menu-btn:hover{background:rgba(255,255,255,.12);border-color:var(--line-2)}
+  .menu-btn svg{width:15px;height:15px}
+
+  /* ===== deck / slides ===== */
+  .deck{position:fixed;inset:0}
+  .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:78px 26px 84px;
+    opacity:0;visibility:hidden;transform:translateY(24px) scale(.99);transition:opacity .55s var(--ease),transform .55s var(--ease),visibility .55s;overflow-y:auto}
+  .slide.active{opacity:1;visibility:visible;transform:none;z-index:2}
+  .slide.prev{transform:translateY(-24px) scale(.99)}
+  .slide-inner{width:100%;max-width:1060px;margin:auto}
+
+  /* staggered content reveal on active slide */
+  .slide.active .rise{animation:rise .7s var(--ease) both}
+  .slide.active .rise:nth-child(1){animation-delay:.05s}
+  .slide.active .rise:nth-child(2){animation-delay:.14s}
+  .slide.active .rise:nth-child(3){animation-delay:.23s}
+  .slide.active .rise:nth-child(4){animation-delay:.32s}
+  .slide.active .rise:nth-child(5){animation-delay:.41s}
+  .slide.active .rise:nth-child(6){animation-delay:.5s}
+  @keyframes rise{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:'Oswald';letter-spacing:.26em;text-transform:uppercase;font-size:13px;color:var(--accent);font-weight:500}
+  .eyebrow::before{content:"";width:26px;height:1px;background:var(--accent-2)}
+  .transition-line{color:var(--dim);font-style:italic;font-size:1.05rem;max-width:620px;margin-bottom:8px}
+
+  /* ===== intro slide ===== */
+  .intro{text-align:center}
+  .intro .logo{height:96px;width:auto;margin:0 auto 26px;filter:drop-shadow(0 20px 40px rgba(0,0,0,.6))}
+  .intro h1{font-weight:600;text-transform:uppercase;font-size:clamp(2.2rem,6vw,4.4rem);line-height:1.02;color:#fff;margin-bottom:8px;letter-spacing:-.5px}
+  .intro h1 .accent{background:linear-gradient(180deg,#fff,#9fb4cc);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .intro .lead{max-width:600px;margin:18px auto 0;font-size:1.15rem;color:#e4e8ee}
+  .intro .lead b{color:#fff}
+  .intro .by{margin-top:22px;font-family:'Oswald';letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--dim)}
+  .intro .by b{color:var(--accent)}
+  .intro .startbtn{margin-top:38px}
+  .hint-keys{margin-top:26px;font-size:13px;color:var(--dim);display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  .hint-keys kbd{font-family:'Oswald';background:var(--panel-2);border:1px solid var(--line);border-bottom-width:2px;border-radius:6px;padding:3px 9px;color:#fff;font-size:12px;letter-spacing:.05em}
+
+  /* ===== pitch slide ===== */
+  .pitch{display:grid;grid-template-columns:1.05fr 1fr;gap:52px;align-items:center}
+  .pitch .badge{display:inline-flex;align-items:center;gap:12px;margin-bottom:20px}
+  .pitch .chip{width:64px;height:64px;border-radius:14px;flex:none;border:1px solid var(--line-2);position:relative;overflow:hidden}
+  .pitch .chip.a{background:linear-gradient(135deg,var(--a1),var(--a2))}
+  .pitch .chip.a::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(233,237,242,.14) 0 2px,transparent 2px 15px)}
+  .pitch .chip.b{background:radial-gradient(120% 120% at 75% 10%,var(--b1),var(--b2))}
+  .pitch .chip.b::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.18) 1px,transparent 0);background-size:14px 14px}
+  .pitch .chip.c{background:linear-gradient(130deg,var(--c1) 58%,var(--c2))}
+  .pitch .badge .lbl b{font-family:'Oswald';display:block;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);font-size:12px;font-weight:500}
+  .pitch .badge .lbl span{font-family:'Oswald';font-size:1.05rem;color:#fff;text-transform:uppercase;letter-spacing:.04em}
+  .pitch h2{font-weight:600;text-transform:uppercase;font-size:clamp(1.9rem,4vw,3.1rem);line-height:1.02;color:#fff;margin-bottom:8px;letter-spacing:-.4px}
+  .pitch .tagline{font-family:'Oswald';font-weight:400;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-size:1rem;margin-bottom:20px}
+  .pitch ul{list-style:none;display:flex;flex-direction:column;gap:13px;margin-bottom:24px}
+  .pitch li{display:flex;gap:12px;align-items:flex-start;color:var(--txt);font-size:1.02rem}
+  .pitch li svg{flex:none;margin-top:4px;color:var(--accent)}
+  .meta-chips{display:flex;flex-wrap:wrap;gap:8px}
+  .meta-chips span{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);border:1px solid var(--line);border-radius:99px;padding:5px 12px}
+  /* pitch visual card */
+  .pitch-visual{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;box-shadow:0 40px 80px -40px rgba(0,0,0,.9)}
+  .pitch-visual .sw{position:absolute;inset:0}
+  .pitch-visual.a .sw{background:linear-gradient(135deg,var(--a1),var(--a2))}
+  .pitch-visual.a .sw::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(233,237,242,.09) 0 2px,transparent 2px 17px)}
+  .pitch-visual.b .sw{background:radial-gradient(120% 100% at 80% 0,var(--b1),var(--b2))}
+  .pitch-visual.b .sw::after{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(255,255,255,.12) 1px,transparent 0);background-size:22px 22px}
+  .pitch-visual.c .sw{background:linear-gradient(130deg,var(--c1) 60%,var(--c2))}
+  .pitch-visual .cap{position:absolute;left:22px;bottom:20px;right:22px}
+  .pitch-visual .cap b{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:#fff;font-size:1.6rem;display:block;line-height:1}
+  .pitch-visual .cap span{font-size:13px;color:rgba(255,255,255,.75)}
+
+  /* ===== live preview slide ===== */
+  .preview{width:100%;max-width:1180px;display:flex;flex-direction:column;height:100%}
+  .preview .pv-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:14px;flex-wrap:wrap}
+  .preview .pv-title{display:flex;align-items:center;gap:12px}
+  .preview .pv-title b{font-family:'Oswald';font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#fff;font-size:1.15rem}
+  .preview .pv-title span{font-size:13px;color:var(--dim)}
+  .pv-controls{display:flex;align-items:center;gap:8px}
+  .toggle{display:inline-flex;background:var(--panel-2);border:1px solid var(--line);border-radius:9px;padding:3px}
+  .toggle button{background:none;border:none;color:var(--dim);font-family:'Oswald';letter-spacing:.08em;text-transform:uppercase;font-size:11.5px;font-weight:500;padding:7px 12px;border-radius:6px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:.2s}
+  .toggle button svg{width:14px;height:14px}
+  .toggle button.on{background:var(--accent-2);color:#fff}
+  .pv-open{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#fff;font-family:'Oswald';letter-spacing:.1em;text-transform:uppercase;font-size:11.5px;padding:8px 13px;border-radius:8px;text-decoration:none;transition:.2s}
+  .pv-open:hover{background:rgba(255,255,255,.12);border-color:var(--line-2)}
+  /* browser frame */
+  .browser{flex:1;min-height:0;display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line-2);border-radius:14px;overflow:hidden;box-shadow:0 50px 90px -50px rgba(0,0,0,.95)}
+  .browser .chrome{display:flex;align-items:center;gap:14px;padding:11px 16px;background:var(--panel-2);border-bottom:1px solid var(--line)}
+  .dots{display:flex;gap:7px}
+  .dots i{width:12px;height:12px;border-radius:50%;display:block}
+  .dots i:nth-child(1){background:#ff5f57}.dots i:nth-child(2){background:#febc2e}.dots i:nth-child(3){background:#28c840}
+  .urlpill{flex:1;background:var(--ink-2);border:1px solid var(--line);border-radius:7px;padding:6px 14px;color:var(--dim);font-size:13px;display:flex;align-items:center;gap:8px;max-width:420px;margin:0 auto}
+  .urlpill svg{width:12px;height:12px;color:#28c840}
+  .viewport{flex:1;min-height:0;background:#fff;display:flex;justify-content:center;transition:padding .4s var(--ease),background .3s}
+  .viewport.phone{padding:16px;background:var(--ink-2)}
+  .frame-wrap{width:100%;height:100%;transition:max-width .4s var(--ease),border-radius .3s,box-shadow .3s}
+  .viewport.phone .frame-wrap{max-width:390px;border-radius:14px;overflow:hidden;box-shadow:0 20px 50px -20px rgba(0,0,0,.7);border:1px solid var(--line)}
+  .viewport iframe{width:100%;height:100%;border:0;display:block;background:#fff}
+  .pv-foot{margin-top:10px;text-align:center;font-size:12.5px;color:var(--dim)}
+
+  /* ===== close slide ===== */
+  .close{text-align:center}
+  .close h2{font-weight:600;text-transform:uppercase;font-size:clamp(2rem,5vw,3.6rem);color:#fff;line-height:1.02;margin-bottom:10px;letter-spacing:-.4px}
+  .close .lead{max-width:620px;margin:0 auto 30px;font-size:1.12rem;color:#e4e8ee}
+  .close .lead b{color:#fff}
+  .recap{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:0 auto 34px;max-width:760px}
+  .recap .r{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:20px 18px;cursor:pointer;transition:.25s;text-align:left}
+  .recap .r:hover{transform:translateY(-5px);border-color:var(--line-2);background:var(--panel-2)}
+  .recap .r .sw{height:60px;border-radius:8px;margin-bottom:14px;position:relative;overflow:hidden}
+  .recap .r.a .sw{background:linear-gradient(135deg,var(--a1),var(--a2))}
+  .recap .r.b .sw{background:radial-gradient(120% 120% at 75% 10%,var(--b1),var(--b2))}
+  .recap .r.c .sw{background:linear-gradient(130deg,var(--c1) 58%,var(--c2))}
+  .recap .r b{font-family:'Oswald';text-transform:uppercase;letter-spacing:.05em;color:#fff;font-size:1rem;display:block;margin-bottom:3px}
+  .recap .r span{font-size:12.5px;color:var(--dim)}
+  .close .contact{font-family:'Oswald';letter-spacing:.06em;color:var(--dim);text-transform:uppercase;font-size:13px;margin-top:6px}
+  .close .contact a{color:var(--accent);text-decoration:none}
+  .close .by{margin-top:20px;font-family:'Oswald';letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--dim)}
+  .close .by b{color:var(--accent)}
+
+  /* ===== buttons ===== */
+  .btn{display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:none;font-family:'Oswald';letter-spacing:.12em;text-transform:uppercase;font-weight:500;font-size:14px;padding:14px 26px;border-radius:9px;transition:.25s;text-decoration:none}
+  .btn svg{width:17px;height:17px}
+  .btn-primary{background:linear-gradient(180deg,#fff,#c9d3de);color:#0a0c0f}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 34px -14px rgba(180,200,220,.5)}
+  .btn-accent{background:var(--accent-2);color:#fff}
+  .btn-accent:hover{background:var(--accent);transform:translateY(-2px)}
+  .btn-ghost{background:rgba(255,255,255,.05);color:#fff;border:1px solid var(--line)}
+  .btn-ghost:hover{background:rgba(255,255,255,.1);border-color:var(--line-2)}
+
+  /* ===== bottom nav ===== */
+  .nav{position:fixed;bottom:0;left:0;right:0;height:70px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;z-index:55;
+    background:linear-gradient(0deg,var(--ink) 30%,transparent)}
+  .nav .navbtn{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.06);border:1px solid var(--line);color:#fff;
+    font-family:'Oswald';letter-spacing:.12em;text-transform:uppercase;font-size:12.5px;font-weight:500;padding:11px 20px;border-radius:9px;cursor:pointer;transition:.22s;backdrop-filter:blur(6px)}
+  .nav .navbtn:hover:not(:disabled){background:rgba(255,255,255,.13);border-color:var(--line-2)}
+  .nav .navbtn:disabled{opacity:.3;cursor:default}
+  .nav .navbtn svg{width:15px;height:15px}
+  .dots-ind{display:flex;align-items:center;gap:10px}
+  .dots-ind .di{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,.2);border:none;padding:0;cursor:pointer;transition:.25s}
+  .dots-ind .di.on{background:var(--accent);transform:scale(1.35)}
+  .dots-ind .di.seg{width:22px;border-radius:99px}
+  .counter{font-family:'Oswald';letter-spacing:.1em;color:var(--dim);font-size:12.5px;min-width:44px;text-align:center}
+
+  /* ===== jump menu overlay ===== */
+  .overlay{position:fixed;inset:0;z-index:80;background:rgba(4,6,10,.72);backdrop-filter:blur(8px);opacity:0;visibility:hidden;transition:.3s;display:flex;align-items:center;justify-content:center;padding:24px}
+  .overlay.open{opacity:1;visibility:visible}
+  .jump{width:100%;max-width:560px;background:var(--panel);border:1px solid var(--line-2);border-radius:16px;padding:26px;transform:translateY(14px);transition:.3s var(--ease);max-height:86vh;overflow:auto}
+  .overlay.open .jump{transform:none}
+  .jump h3{font-family:'Oswald';text-transform:uppercase;letter-spacing:.08em;color:#fff;font-size:1.1rem;margin-bottom:4px}
+  .jump p{color:var(--dim);font-size:13px;margin-bottom:18px}
+  .jump .close-x{position:absolute;top:20px;right:22px;background:none;border:none;color:var(--dim);cursor:pointer;font-size:22px;line-height:1}
+  .jump ol{list-style:none;display:flex;flex-direction:column;gap:6px}
+  .jump li button{width:100%;display:flex;align-items:center;gap:14px;background:none;border:1px solid transparent;border-radius:10px;padding:12px 14px;cursor:pointer;text-align:left;transition:.2s;color:var(--txt)}
+  .jump li button:hover{background:var(--panel-2);border-color:var(--line)}
+  .jump li button.on{border-color:var(--accent-2);background:var(--panel-2)}
+  .jump li .n{font-family:'Oswald';font-size:13px;color:var(--dim);width:26px;flex:none}
+  .jump li .t b{font-family:'Oswald';text-transform:uppercase;letter-spacing:.05em;color:#fff;font-size:.98rem;display:block}
+  .jump li .t span{font-size:12px;color:var(--dim)}
+  .jump .extra{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:12px;flex-wrap:wrap}
+  .jump .extra a{font-family:'Oswald';letter-spacing:.08em;text-transform:uppercase;font-size:12px;color:var(--accent);text-decoration:none}
+
+  /* ===== responsive ===== */
+  @media(max-width:860px){
+    .pitch{grid-template-columns:1fr;gap:26px}
+    .pitch-visual{aspect-ratio:16/9;order:-1}
+    .slide{padding:70px 18px 80px}
+    .brand small{display:none}
+    .hint-keys{display:none}
+  }
+  @media(max-width:560px){
+    .recap{grid-template-columns:1fr}
+    .nav .navbtn span{display:none}
+    .nav .navbtn{padding:11px 14px}
+    .pv-head .pv-title span{display:none}
+    .counter{min-width:36px}
+    .intro .logo{height:74px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:opacity .2s linear!important}
+    .slide{transform:none}
+    .slide.active .rise{animation:none}
+  }
 </style>
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <span class="kicker">A Website Concept for Spartacus Protection &amp; Consulting</span>
-    <h1>Three Directions to Explore</h1>
-    <p class="sub">A design demo by <b>Joshua Leonard</b> — showing what a modern, fully responsive Spartacus website could look and feel like.</p>
-  </header>
 
-  <section class="note">
-    <div class="note-inner">
-      <h3>What you're looking at</h3>
-      <p>I took your current site and rebuilt it into three different visual styles so you can <b>see the options side by side</b> and get a feel for what fits Spartacus best. All three use your real content, logo, and photos — same sections, three distinct personalities.</p>
-      <p><b>Nothing here is set in stone.</b> Think of this as a starting point, not a finished product. We can mix pieces from different styles, change colors, fonts, layout, wording, add pages — whatever you have in mind. Pick a favorite (or the parts you like from each) and we'll take it from there.</p>
-      <p class="hint">→ Click any style below to open the full page. Try resizing your browser narrow to see how it adapts to phones.</p>
+<div class="progress"><div class="fill" id="pfill"></div></div>
+
+<div class="topbar">
+  <a class="brand" href="#" onclick="go(0);return false" aria-label="Restart walkthrough">
+    <img src="assets/logo.avif" alt="Spartacus logo" />
+    <span><b>Spartacus</b><small>Design Walkthrough</small></span>
+  </a>
+  <button class="menu-btn" id="menuBtn" aria-label="Open slide menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    Slides
+  </button>
+</div>
+
+<main class="deck" id="deck">
+
+  <!-- 0 · INTRO -->
+  <section class="slide" data-title="Welcome" data-sub="Introduction">
+    <div class="slide-inner intro">
+      <img class="logo rise" src="assets/logo.avif" alt="Spartacus Protection and Consulting" />
+      <h1 class="rise">A New Website<br><span class="accent">Concept for Spartacus</span></h1>
+      <p class="lead rise">I rebuilt your site into <b>three distinct design directions</b> so you can see the possibilities and feel out what fits Spartacus best. This is a quick guided tour — I'll walk you through each one.</p>
+      <p class="by rise">Concept &amp; design by <b>Joshua Leonard</b> · Nothing here is set in stone</p>
+      <div class="startbtn rise">
+        <button class="btn btn-primary" onclick="next()">Begin the Walkthrough
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      </div>
+      <div class="hint-keys rise">
+        <span>Navigate with <kbd>←</kbd> <kbd>→</kbd> arrow keys</span>
+        <span><kbd>Space</kbd> for next</span>
+        <span>or the buttons below</span>
+      </div>
     </div>
   </section>
 
-  <div class="grid">
-    <a class="card a" href="design-a-dark-metallic/index.html">
-      <div class="swatch"><b>A · Dark + Metallic</b></div>
-      <div class="info">
-        <h2>Tactical Premium</h2>
-        <p>Charcoal base with steel/silver accents pulled from the shield logo. Condensed display type, security-grade and authoritative.</p>
-        <div class="tags"><span>Oswald</span><span>Dark</span><span>Steel</span></div>
-        <span class="go">View demo →</span>
+  <!-- 1 · DESIGN A PITCH -->
+  <section class="slide" data-title="Design A" data-sub="Dark + Metallic">
+    <div class="slide-inner pitch">
+      <div class="pitch-copy">
+        <span class="eyebrow rise">Direction 1 of 3</span>
+        <div class="badge rise" style="margin-top:16px">
+          <span class="chip a"></span>
+          <span class="lbl"><b>Design A</b><span>Dark + Metallic</span></span>
+        </div>
+        <h2 class="rise">Tactical Premium</h2>
+        <div class="tagline rise">Authoritative · Security-Grade · Bold</div>
+        <ul class="rise">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Steel &amp; silver pulled straight from your metallic shield logo</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Condensed, tactical type over a night-skyline hero</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Projects strength — stands out from typical security sites</li>
+        </ul>
+        <div class="meta-chips rise"><span>Oswald + Barlow</span><span>Charcoal / Steel</span><span>Premium</span></div>
+        <div class="rise" style="margin-top:26px">
+          <button class="btn btn-accent" onclick="next()">See it live
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
       </div>
-    </a>
-    <a class="card b" href="design-b-modern-blue/index.html">
-      <div class="swatch"><b>B · Modern Blue</b></div>
-      <div class="info">
-        <h2>Confident &amp; On-Brand</h2>
-        <p>Keeps the recognizable Spartacus blue, rebuilt on a clean spacing and type system with layered sections and rounded cards.</p>
-        <div class="tags"><span>Bricolage</span><span>Blue</span><span>Cards</span></div>
-        <span class="go">View demo →</span>
-      </div>
-    </a>
-    <a class="card c" href="design-c-light-pro/index.html">
-      <div class="swatch"><b>C · Light Editorial</b></div>
-      <div class="info">
-        <h2>Trustworthy &amp; Refined</h2>
-        <p>Warm off-white base, deep navy, and a gold accent with an elegant serif. Approachable — well suited to school &amp; faith audiences.</p>
-        <div class="tags"><span>Fraunces</span><span>Light</span><span>Navy + Gold</span></div>
-        <span class="go">View demo →</span>
-      </div>
-    </a>
-  </div>
+      <div class="pitch-visual a rise"><div class="sw"></div><div class="cap"><b>Design A</b><span>Dark + Metallic · Tactical Premium</span></div></div>
+    </div>
+  </section>
 
-  <footer>
-    <p class="by">Concept &amp; design by <b>Joshua Leonard</b></p>
-    <p>Prepared for Spartacus Protection &amp; Consulting · A demo, not the live site · Everything is open to change</p>
-  </footer>
+  <!-- 2 · DESIGN A LIVE -->
+  <section class="slide" data-title="Design A — Live" data-sub="Explore it" data-preview="design-a-dark-metallic/index.html">
+    <div class="slide-inner preview">
+      <div class="pv-head">
+        <div class="pv-title"><b>Design A · Dark + Metallic</b><span>— scroll and click inside the frame, it's the real page</span></div>
+        <div class="pv-controls">
+          <div class="toggle" role="group" aria-label="Preview size">
+            <button class="on" data-size="desktop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>Desktop</button>
+            <button data-size="phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>Phone</button>
+          </div>
+          <a class="pv-open" href="design-a-dark-metallic/index.html" target="_blank" rel="noopener">Full screen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M21 3l-8 8M9 21H3v-6M3 21l8-8"/></svg></a>
+        </div>
+      </div>
+      <div class="browser">
+        <div class="chrome"><div class="dots"><i></i><i></i><i></i></div>
+          <div class="urlpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>spartacusprocon.com</div>
+        </div>
+        <div class="viewport"><div class="frame-wrap"><iframe title="Design A live preview" data-src="design-a-dark-metallic/index.html" loading="lazy"></iframe></div></div>
+      </div>
+      <div class="pv-foot">Tip: toggle <b>Phone</b> to see how the design adapts to mobile.</div>
+    </div>
+  </section>
+
+  <!-- 3 · DESIGN B PITCH -->
+  <section class="slide" data-title="Design B" data-sub="Modern Blue">
+    <div class="slide-inner pitch">
+      <div class="pitch-copy">
+        <p class="transition-line rise">That was the boldest end of the spectrum. If you'd rather evolve what your clients already recognize…</p>
+        <span class="eyebrow rise">Direction 2 of 3</span>
+        <div class="badge rise" style="margin-top:16px">
+          <span class="chip b"></span>
+          <span class="lbl"><b>Design B</b><span>Modern Blue</span></span>
+        </div>
+        <h2 class="rise">Confident &amp; On-Brand</h2>
+        <div class="tagline rise">Familiar · Polished · Lowest-Risk</div>
+        <ul class="rise">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Keeps your recognizable Spartacus blue — just modernized</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Clean spacing, layered sections, rounded cards, floating skyline</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Familiar to returning visitors, but far more refined</li>
+        </ul>
+        <div class="meta-chips rise"><span>Bricolage + DM Sans</span><span>Spartacus Blue / Navy</span><span>Cards</span></div>
+        <div class="rise" style="margin-top:26px">
+          <button class="btn btn-accent" onclick="next()">See it live
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="pitch-visual b rise"><div class="sw"></div><div class="cap"><b>Design B</b><span>Modern Blue · Confident &amp; On-Brand</span></div></div>
+    </div>
+  </section>
+
+  <!-- 4 · DESIGN B LIVE -->
+  <section class="slide" data-title="Design B — Live" data-sub="Explore it" data-preview="design-b-modern-blue/index.html">
+    <div class="slide-inner preview">
+      <div class="pv-head">
+        <div class="pv-title"><b>Design B · Modern Blue</b><span>— scroll and click inside the frame, it's the real page</span></div>
+        <div class="pv-controls">
+          <div class="toggle" role="group" aria-label="Preview size">
+            <button class="on" data-size="desktop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>Desktop</button>
+            <button data-size="phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>Phone</button>
+          </div>
+          <a class="pv-open" href="design-b-modern-blue/index.html" target="_blank" rel="noopener">Full screen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M21 3l-8 8M9 21H3v-6M3 21l8-8"/></svg></a>
+        </div>
+      </div>
+      <div class="browser">
+        <div class="chrome"><div class="dots"><i></i><i></i><i></i></div>
+          <div class="urlpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>spartacusprocon.com</div>
+        </div>
+        <div class="viewport"><div class="frame-wrap"><iframe title="Design B live preview" data-src="design-b-modern-blue/index.html" loading="lazy"></iframe></div></div>
+      </div>
+      <div class="pv-foot">Tip: toggle <b>Phone</b> to see how the design adapts to mobile.</div>
+    </div>
+  </section>
+
+  <!-- 5 · DESIGN C PITCH -->
+  <section class="slide" data-title="Design C" data-sub="Light Editorial">
+    <div class="slide-inner pitch">
+      <div class="pitch-copy">
+        <p class="transition-line rise">And for something warmer, lighter, and more approachable…</p>
+        <span class="eyebrow rise">Direction 3 of 3</span>
+        <div class="badge rise" style="margin-top:16px">
+          <span class="chip c"></span>
+          <span class="lbl"><b>Design C</b><span>Light Editorial</span></span>
+        </div>
+        <h2 class="rise">Trustworthy &amp; Refined</h2>
+        <div class="tagline rise">Warm · Established · Approachable</div>
+        <ul class="rise">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Light and airy with generous whitespace</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Deep navy with a warm gold accent and an elegant serif</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6L9 17l-5-5"/></svg> Reads established and trustworthy — ideal for school &amp; faith audiences</li>
+        </ul>
+        <div class="meta-chips rise"><span>Fraunces + Public Sans</span><span>Warm White / Navy / Gold</span><span>Editorial</span></div>
+        <div class="rise" style="margin-top:26px">
+          <button class="btn btn-accent" onclick="next()">See it live
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="pitch-visual c rise"><div class="sw"></div><div class="cap"><b>Design C</b><span>Light Editorial · Trustworthy &amp; Refined</span></div></div>
+    </div>
+  </section>
+
+  <!-- 6 · DESIGN C LIVE -->
+  <section class="slide" data-title="Design C — Live" data-sub="Explore it" data-preview="design-c-light-pro/index.html">
+    <div class="slide-inner preview">
+      <div class="pv-head">
+        <div class="pv-title"><b>Design C · Light Editorial</b><span>— scroll and click inside the frame, it's the real page</span></div>
+        <div class="pv-controls">
+          <div class="toggle" role="group" aria-label="Preview size">
+            <button class="on" data-size="desktop"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="1.5"/><path d="M8 21h8M12 17v4"/></svg>Desktop</button>
+            <button data-size="phone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>Phone</button>
+          </div>
+          <a class="pv-open" href="design-c-light-pro/index.html" target="_blank" rel="noopener">Full screen
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M21 3l-8 8M9 21H3v-6M3 21l8-8"/></svg></a>
+        </div>
+      </div>
+      <div class="browser">
+        <div class="chrome"><div class="dots"><i></i><i></i><i></i></div>
+          <div class="urlpill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>spartacusprocon.com</div>
+        </div>
+        <div class="viewport"><div class="frame-wrap"><iframe title="Design C live preview" data-src="design-c-light-pro/index.html" loading="lazy"></iframe></div></div>
+      </div>
+      <div class="pv-foot">Tip: toggle <b>Phone</b> to see how the design adapts to mobile.</div>
+    </div>
+  </section>
+
+  <!-- 7 · CLOSE -->
+  <section class="slide" data-title="Wrap-up" data-sub="Next steps">
+    <div class="slide-inner close">
+      <span class="eyebrow rise" style="justify-content:center">That's the tour</span>
+      <h2 class="rise" style="margin-top:14px">Which One Feels Like Spartacus?</h2>
+      <p class="lead rise"><b>Nothing here is locked in.</b> Pick a favorite, or mix the parts you like — colors, fonts, layout, wording, extra pages. This is a starting point for a conversation.</p>
+      <div class="recap rise">
+        <div class="r a" onclick="go(1)"><div class="sw"></div><b>Design A</b><span>Dark + Metallic</span></div>
+        <div class="r b" onclick="go(3)"><div class="sw"></div><b>Design B</b><span>Modern Blue</span></div>
+        <div class="r c" onclick="go(5)"><div class="sw"></div><b>Design C</b><span>Light Editorial</span></div>
+      </div>
+      <p class="contact rise">Let's talk → <a href="tel:+13178320648">(317) 832-0648</a> &nbsp;·&nbsp; <a href="mailto:everglowstudioindy@gmail.com">everglowstudioindy@gmail.com</a></p>
+      <p class="by rise">Concept &amp; design by <b>Joshua Leonard</b> · A demo, not the live site</p>
+    </div>
+  </section>
+
+</main>
+
+<nav class="nav">
+  <button class="navbtn" id="prevBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg><span>Back</span></button>
+  <div style="display:flex;align-items:center;gap:16px">
+    <div class="dots-ind" id="dotsInd"></div>
+    <div class="counter" id="counter">1 / 8</div>
+  </div>
+  <button class="navbtn" id="nextBtn"><span>Next</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+</nav>
+
+<!-- jump menu -->
+<div class="overlay" id="overlay">
+  <div class="jump" style="position:relative">
+    <button class="close-x" id="closeX" aria-label="Close">×</button>
+    <h3>Jump to a Slide</h3>
+    <p>Skip straight to any part of the walkthrough.</p>
+    <ol id="jumpList"></ol>
+    <div class="extra">
+      <a href="overview.html">▤ See all three at a glance</a>
+    </div>
+  </div>
 </div>
+
+<script>
+  const slides=[...document.querySelectorAll('.slide')];
+  const total=slides.length;
+  const parseHash=()=>{const n=parseInt((location.hash||'').replace('#',''),10);return isNaN(n)?0:Math.max(0,Math.min(total-1,n));};
+  let idx=parseHash();
+  const pfill=document.getElementById('pfill');
+  const counter=document.getElementById('counter');
+  const prevBtn=document.getElementById('prevBtn');
+  const nextBtn=document.getElementById('nextBtn');
+  const dotsInd=document.getElementById('dotsInd');
+  const overlay=document.getElementById('overlay');
+  const jumpList=document.getElementById('jumpList');
+
+  // build dot indicators + jump list
+  slides.forEach((s,i)=>{
+    const d=document.createElement('button');
+    d.className='di';d.setAttribute('aria-label','Go to slide '+(i+1));
+    d.addEventListener('click',()=>go(i));
+    dotsInd.appendChild(d);
+
+    const li=document.createElement('li');
+    const b=document.createElement('button');
+    b.innerHTML='<span class="n">'+String(i+1).padStart(2,'0')+'</span><span class="t"><b>'+s.dataset.title+'</b><span>'+s.dataset.sub+'</span></span>';
+    b.addEventListener('click',()=>{go(i);closeMenu();});
+    li.appendChild(b);jumpList.appendChild(li);
+  });
+  const dots=[...dotsInd.children];
+  const jumpBtns=[...jumpList.querySelectorAll('button')];
+
+  function render(){
+    slides.forEach((s,i)=>{
+      s.classList.toggle('active',i===idx);
+      s.classList.toggle('prev',i<idx);
+    });
+    // lazy-load iframe when reached
+    const cur=slides[idx];
+    const iframe=cur.querySelector('iframe[data-src]');
+    if(iframe && !iframe.src){iframe.src=iframe.dataset.src;}
+
+    pfill.style.width=((idx)/(total-1)*100)+'%';
+    counter.textContent=(idx+1)+' / '+total;
+    prevBtn.disabled=idx===0;
+    nextBtn.disabled=idx===total-1;
+    dots.forEach((d,i)=>{d.classList.toggle('on',i===idx);d.classList.toggle('seg',i===idx);});
+    jumpBtns.forEach((b,i)=>b.classList.toggle('on',i===idx));
+    if(history.replaceState)history.replaceState(null,'','#'+idx);
+  }
+  function go(i){idx=Math.max(0,Math.min(total-1,i));render();}
+  function next(){if(idx<total-1)go(idx+1);}
+  function prev(){if(idx>0)go(idx-1);}
+  window.go=go;window.next=next;
+
+  prevBtn.addEventListener('click',prev);
+  nextBtn.addEventListener('click',next);
+
+  // keyboard
+  addEventListener('keydown',e=>{
+    if(overlay.classList.contains('open')){if(e.key==='Escape')closeMenu();return;}
+    if(e.key==='ArrowRight'||e.key==='PageDown'){e.preventDefault();next();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
+    else if(e.key===' '){ // space: next, unless focus is inside an iframe/scrollable — deck has overflow so guard target
+      if(e.target===document.body||e.target.closest('.deck')){e.preventDefault();next();}
+    }
+    else if(e.key==='Home'){e.preventDefault();go(0);}
+    else if(e.key==='End'){e.preventDefault();go(total-1);}
+  });
+
+  // swipe (ignore swipes that start inside the live-preview browser frame so users can scroll it)
+  let tx=0,ty=0,tracking=false;
+  addEventListener('touchstart',e=>{
+    if(e.target.closest('.browser')){tracking=false;return;}
+    tracking=true;tx=e.touches[0].clientX;ty=e.touches[0].clientY;
+  },{passive:true});
+  addEventListener('touchend',e=>{
+    if(!tracking)return;tracking=false;
+    const dx=e.changedTouches[0].clientX-tx, dy=e.changedTouches[0].clientY-ty;
+    if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)){dx<0?next():prev();}
+  },{passive:true});
+
+  // desktop / phone toggle (per preview slide)
+  document.querySelectorAll('.toggle').forEach(tg=>{
+    const vp=tg.closest('.preview').querySelector('.viewport');
+    tg.querySelectorAll('button').forEach(btn=>{
+      btn.addEventListener('click',()=>{
+        tg.querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+        btn.classList.add('on');
+        vp.classList.toggle('phone',btn.dataset.size==='phone');
+      });
+    });
+  });
+
+  // jump menu
+  const menuBtn=document.getElementById('menuBtn');
+  const closeX=document.getElementById('closeX');
+  function openMenu(){overlay.classList.add('open');}
+  function closeMenu(){overlay.classList.remove('open');}
+  menuBtn.addEventListener('click',openMenu);
+  closeX.addEventListener('click',closeMenu);
+  overlay.addEventListener('click',e=>{if(e.target===overlay)closeMenu();});
+
+  render();
+</script>
 </body>
 </html>

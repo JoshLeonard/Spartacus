@@ -8,7 +8,9 @@ built with plain HTML + CSS + a little vanilla JS — **no build step, no framew
 
 ```
 spartacus/
-├─ index.html                     # Demo chooser — start here
+├─ index.html                     # ★ Guided walkthrough (start here) — a slide deck that
+│                                 #   narrates and eases through all three designs with live previews
+├─ overview.html                  # Quick "all three at a glance" card view (linked from the deck menu)
 ├─ design-a-dark-metallic/        # A · Tactical premium dark + steel
 │  └─ index.html
 ├─ design-b-modern-blue/          # B · Modernized Spartacus blue
@@ -19,6 +21,13 @@ spartacus/
 │  ├─ logo.avif  skyline.avif  dino.avif  amy.avif
 └─ README.md
 ```
+
+**`index.html` is a guided walkthrough** — a full-screen slide deck that introduces the project,
+then eases through each design with a short "pitch" slide followed by a **live, interactive preview**
+of the real page (embedded in a browser frame, with a desktop/phone toggle and an "open full screen"
+link). Navigate with the on-screen buttons, arrow keys / spacebar, swipe, or the "Slides" jump menu.
+The three `design-*` pages remain fully **standalone and independently hostable** — the deck just
+embeds them.
 
 All three share the same sections and copy (Hero → Our Story → Team → Services → Testimonials →
 Contact/Footer), sticky nav with a mobile hamburger menu, fluid responsive layout, and on-scroll
