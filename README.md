@@ -1,14 +1,14 @@
-# Spartacus Protection & Consulting — Redesign Demos
+# Spartacus Protection & Consulting | Redesign Demos
 
 Modern, responsive redesign of [spartacusprocon.com](https://www.spartacusprocon.com/) as a
 **standalone static site**. Three visual directions to demo, each a self-contained single page
-built with plain HTML + CSS + a little vanilla JS — **no build step, no frameworks, no dependencies**.
+built with plain HTML + CSS + a little vanilla JS, **no build step, no frameworks, no dependencies**.
 
 ## What's here
 
 ```
 spartacus/
-├─ index.html                     # ★ Guided walkthrough (start here) — a slide deck that
+├─ index.html                     # ★ Guided walkthrough (start here), a slide deck that
 │                                 #   narrates and eases through all three designs with live previews
 ├─ overview.html                  # Quick "all three at a glance" card view (linked from the deck menu)
 ├─ design-a-dark-metallic/        # A · Tactical premium dark + steel
@@ -22,11 +22,11 @@ spartacus/
 └─ README.md
 ```
 
-**`index.html` is a guided walkthrough** — a full-screen slide deck that introduces the project,
+**`index.html` is a guided walkthrough**, a full-screen slide deck that introduces the project,
 then eases through each design with a short "pitch" slide followed by a **live, interactive preview**
 of the real page (embedded in a browser frame, with a desktop/phone toggle and an "open full screen"
 link). Navigate with the on-screen buttons, arrow keys / spacebar, swipe, or the "Slides" jump menu.
-The three `design-*` pages remain fully **standalone and independently hostable** — the deck just
+The three `design-*` pages remain fully **standalone and independently hostable**, the deck just
 embeds them.
 
 All three share the same sections and copy (Hero → Our Story → Team → Services → Testimonials →
@@ -50,7 +50,7 @@ python -m http.server 8080
 # then visit http://localhost:8080
 ```
 
-Resize the window (or use the browser device toolbar) to see the responsive behavior — the nav
+Resize the window (or use the browser device toolbar) to see the responsive behavior, the nav
 collapses to a hamburger and grids stack to a single column on small screens.
 
 ## Hosting / Wix notes
@@ -69,8 +69,8 @@ S3, etc.). To use the chosen direction on **Wix**:
 
 - **Images** are `.avif` (small, modern, broadly supported). If you need to support older browsers,
   we can add `<picture>` + `.jpg` fallbacks.
-- **Copy** is taken from the current site and lightly tightened for scannability — no new claims.
+- **Copy** is taken from the current site and lightly tightened for scannability, no new claims.
   Easy to adjust per section.
 - **Services** shows the two current offerings (Risk Assessment, Security Consultation); the card
   grid is built to drop in more without layout changes.
-- Social links (`#`) and legal pages are placeholders — point them at the real URLs when ready.
+- Social links (`#`) and legal pages are placeholders, point them at the real URLs when ready.
