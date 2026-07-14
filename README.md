@@ -29,9 +29,13 @@ link). Navigate with the on-screen buttons, arrow keys / spacebar, swipe, or the
 The three `design-*` pages remain fully **standalone and independently hostable**, the deck just
 embeds them.
 
-All three share the same sections and copy (Hero → Our Story → Team → Services → Testimonials →
+All three share the same sections and copy (Hero → Our Story → Team → Services → Security
+Assessments → Safety Training → On-Site Security → Protection Services → Testimonials →
 Contact/Footer), sticky nav with a mobile hamburger menu, fluid responsive layout, and on-scroll
-reveals. Only the look & feel differs.
+reveals. Only the look & feel differs. Content is the real Spartacus content pulled from the
+existing site: the three-person team (Dino, Amy, Jami), the full assessments catalog, the safety-
+training programs (Active Shooter, Reunification, Threat Assessment Team), on-site security,
+executive/close protection, and real testimonials.
 
 | | Direction | Fonts | Palette |
 |---|---|---|---|
@@ -71,6 +75,11 @@ S3, etc.). To use the chosen direction on **Wix**:
   we can add `<picture>` + `.jpg` fallbacks.
 - **Copy** is taken from the current site and lightly tightened for scannability, no new claims.
   Easy to adjust per section.
-- **Services** shows the two current offerings (Risk Assessment, Security Consultation); the card
-  grid is built to drop in more without layout changes.
+- **Services** shows six offering categories (Security Assessments, Safety Training, On-Site
+  Security, Executive & Close Protection, Secure Transport, Surveillance & Background Checks), each
+  expanded below into its own detailed section. The executive/close protection, secure transport,
+  and surveillance items came from the old site and may be template-kit leftovers, easy to trim to
+  the schools/churches niche if Spartacus prefers.
+- **Contact** uses the real Spartacus details: (317) 690-0142, info@spartacusprocon.com, and the
+  Carmel, IN address.
 - Social links (`#`) and legal pages are placeholders, point them at the real URLs when ready.
